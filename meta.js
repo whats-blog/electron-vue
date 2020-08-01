@@ -10,7 +10,7 @@ function getCurrentSHA (author) {
 
     get({
       host: 'api.github.com',
-      path: `/repos/simulatedgreg/electron-vue/commits${isBranch ? '?sha=' + process.argv[2].split('#')[1] : ''}`,
+      path: `/repos/whats-blog/electron-vue/commits${isBranch ? '?sha=' + process.argv[2].split('#')[1] : ''}`,
       headers: {
         'User-Agent': author
       }
@@ -40,7 +40,7 @@ function appendSHALink (sha, destDirName) {
   let md = readFileSync(readmePath, 'utf8')
   md = md.replace(
     ' using',
-    `@[${sha.substring(0, 7)}](https://github.com/SimulatedGREG/electron-vue/tree/${sha}) using`
+    `@[${sha.substring(0, 7)}](https://github.com/whats-blog/electron-vue/tree/${sha}) using`
   )
   writeFileSync(readmePath, md, 'utf8')
 }
@@ -191,7 +191,7 @@ module.exports = {
         'All set. Welcome to your new electron-vue project!',
         '',
         'Make sure to check out the documentation for this boilerplate at',
-        '\x1b[33mhttps://simulatedgreg.gitbooks.io/electron-vue/content/\x1b[0m.',
+        '\x1b[33mhttps://whats-blog.gitbooks.io/electron-vue/content/\x1b[0m.',
         '',
         `Next Steps:\n${!data.inPlace ? '\n  \x1b[33m$\x1b[0m cd ' + data.destDirName : ''}`,
         '  \x1b[33m$\x1b[0m yarn (or `npm install`)',
